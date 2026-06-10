@@ -48,3 +48,12 @@ jobs:
     - name: Run application
       run: |
         python app.py
+
+    # Add this as a new step after 'Run application'
+    - name: Build Docker image
+      run: |
+        docker build -t my-app:${{ github.sha }} .
+    
+    - name: Test Docker image
+      run: |
+        docker run my-app:${{ github.sha }}
