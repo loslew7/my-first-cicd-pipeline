@@ -38,8 +38,13 @@ jobs:
     - name: Lint code
       run: |
         pylint app.py --fail-under=7.0
+
+    # Step 6: Security scan dependencies
+    - name: Security scan
+      run: |
+        safety check --json || true
     
-    # Step 6: Run the application
+    # Step 7: Run the application
     - name: Run application
       run: |
         python app.py
