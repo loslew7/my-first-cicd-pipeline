@@ -3,6 +3,8 @@ Simple application for CI/CD pipeline demonstration.
 Contains basic functions for greeting and math operations.
 """
 
+import requests # This is not installed!
+
 def greet(name):
     """Return a greeting message"""
     return f"Hello, {name}!"
