@@ -33,8 +33,13 @@ jobs:
     - name: Run tests
       run: |
         pytest test_app.py -v
+
+    # Step 5: Check code quality
+    - name: Lint code
+      run: |
+        pylint app.py --fail-under=7.0
     
-    # Step 5: Run the application
+    # Step 6: Run the application
     - name: Run application
       run: |
         python app.py
